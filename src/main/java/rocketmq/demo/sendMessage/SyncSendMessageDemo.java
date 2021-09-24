@@ -18,18 +18,12 @@ public class SyncSendMessageDemo {
         mqProducer.setNamesrvAddr("192.168.209.128:9876");
 
         mqProducer.start();
-        for (int i = 0; i <100 ; i++) {
-            String msg = "我的第一条消息"+1;
+        String msg = "我的第一条消息 bbb";
 
-            Message message = new Message("my-topic2","my-tag","key1",msg.getBytes("UTF-8"));
+        Message message = new Message("cmd-topic","my-tag","key1",msg.getBytes("UTF-8"));
 
-            SendResult send = mqProducer.send(message);
-            System.out.println(send);
-
-        }
-
-
-
+        SendResult send = mqProducer.send(message);
+        System.out.println(send);
 
         mqProducer.shutdown();
 
