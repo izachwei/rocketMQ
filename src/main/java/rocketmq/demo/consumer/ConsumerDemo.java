@@ -19,7 +19,7 @@ public class ConsumerDemo {
         mqPushConsumer.setNamesrvAddr("192.168.209.128:9876");
 
         // 订阅主题
-        mqPushConsumer.subscribe("cmd-topic", "my-tag");
+        mqPushConsumer.subscribe("cmd-topic", "*");
 
         // 消息监听用于 处理消息
         mqPushConsumer.registerMessageListener(new MessageListenerConcurrently() {

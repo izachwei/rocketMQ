@@ -22,6 +22,6 @@ public class ProductRetryMessageDemo {
         Message msg = new Message("retry-topic","pro",msgStr.getBytes(StandardCharsets.UTF_8));
 
         // 设置消息超时
-        mqProducer.send(msg,1000);
+        mqProducer.send(msg,3000);
     }
 }

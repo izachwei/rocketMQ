@@ -15,10 +15,26 @@ public class AsyncSendMessageDemo {
     public static void main(String[] args) throws MQClientException, UnsupportedEncodingException, RemotingException, InterruptedException {
         DefaultMQProducer mqProducer = new DefaultMQProducer("test-group");
 
-        mqProducer.setNamesrvAddr("192.168.209.128:9876");
+        mqProducer.setNamesrvAddr("192.168.209.128:9876;192.168.209.128:9877");
 
         mqProducer.start();
 
+//        String msg = "第" + 1 + "条消息";
+//        // String topic, String tags, String keys, int flag, byte[] body, boolean waitStoreMsgOK
+//        Message message = new Message("cmd-topic", msg.getBytes(StandardCharsets.UTF_8));
+//
+//        mqProducer.send(message, new SendCallback() {
+//            @Override
+//            public void onSuccess(SendResult sendResult) {
+//                System.out.println("消息发送成功," + sendResult.toString());
+//            }
+//
+//            @Override
+//            public void onException(Throwable e) {
+//                e.printStackTrace();
+//                System.out.println("消息发送失败，错误信息：" + e.getMessage());
+//            }
+//        });
         for (int i = 0; i < 100; i++) {
             String msg = "第" + i + "条消息";
             // String topic, String tags, String keys, int flag, byte[] body, boolean waitStoreMsgOK
